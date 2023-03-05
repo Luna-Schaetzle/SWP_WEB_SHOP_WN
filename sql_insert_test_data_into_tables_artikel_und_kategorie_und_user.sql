@@ -1,0 +1,18 @@
+--kategorie
+--INSERT kategorie (kategorie) VALUES ('');
+INSERT kategorie (kategorie) VALUES ('test_kategorie');
+
+
+--artikel
+--INSERT artikel (artikel_name,artikel_beschreibung,preis,kategorie) VALUES ('','',0.0,'');
+INSERT artikel (artikel_name,artikel_beschreibung,preis,kategorie) VALUES ('Test','dies ist ein Test',999999.99,'test_kategorie');
+
+--user
+--Insert user (user_psw,user_name,user_nachname,user_email) VALUES ('','','','');
+Insert user (user_psw,user_name,user_nachname,user_email) VALUES ('psw','te','test','te@test.com');
+
+
+--select *
+select * from kategorie;
+select * from artikel;
+select * from user;
