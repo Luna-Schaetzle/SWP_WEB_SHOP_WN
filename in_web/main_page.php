@@ -4,11 +4,17 @@
 
 </head>
 <body>
+
+<h1>Web@Shop</h1>
+
+<h3>Kategorie: 
 <?php
 $servername = "localhost";
 $username = "root";
 $password = "zwiebel55";
 $dbname = "web_shop";
+
+$kategorie = $_REQUEST["id"];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -17,7 +23,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
   }
 
-$sql = "SELECT * from artikel;";
+$sql = "SELECT * from artikel where kategorie = $kategorie;";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
