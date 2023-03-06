@@ -8,7 +8,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "zwiebel55";
-$dbname = "swp_shop";
+$dbname = "web_shop";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,6 +23,13 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   echo "<table border='1'>";
+  echo "<tr>";
+  echo "<th>Artikel ID</th>";
+  echo "<th>Name</th>";
+  echo "<th>Beschreibung</th>";
+  echo "<th>Preis [€]</th>";
+  echo "<th>Kategorie</th>";
+  echo "</tr>";
   while($row = $result->fetch_assoc()) {
     echo "<tr>";
     echo "<td>" . $row["artikel_id"]. "</td>"; 
