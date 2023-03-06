@@ -4,6 +4,9 @@ INSERT kategorie (kategorie) VALUES ('test_kategorie');
 
 
 --artikel
+--INSERT artikel (artikel_name,artikel_beschreibung,preis,kategorie,user_id) VALUES ('','',0.0,'',0);
+--INSERT artikel (artikel_name,artikel_beschreibung,preis,kategorie,user_id) VALUES ('Test','dies ist ein Test',999999.99,'test_kategorie',1);
+
 --INSERT artikel (artikel_name,artikel_beschreibung,preis,kategorie) VALUES ('','',0.0,'');
 INSERT artikel (artikel_name,artikel_beschreibung,preis,kategorie) VALUES ('Test','dies ist ein Test',999999.99,'test_kategorie');
 
