@@ -5,6 +5,7 @@ INSERT kategorie (kategorie) VALUES ('SWP');
 INSERT kategorie (kategorie) VALUES ('Furry');
 INSERT kategorie (kategorie) VALUES ('IT');
 INSERT kategorie (kategorie) VALUES ('SFW');
+INSERT kategorie (kategorie) VALUES ('communism');
 
 
 
