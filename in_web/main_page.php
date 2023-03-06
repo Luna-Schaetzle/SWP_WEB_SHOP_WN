@@ -73,6 +73,7 @@ if ($result->num_rows > 0) {
     echo "<li>".$row["kategorie"]."</li>";
     }
     echo "</ul>";
+    echo "<p></p><p></p><p></p><p></p>";
     echo "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Stylized_uwu_emoticon.svg/1200px-Stylized_uwu_emoticon.svg.png' width='500' height='250'>";
   }
   else {
