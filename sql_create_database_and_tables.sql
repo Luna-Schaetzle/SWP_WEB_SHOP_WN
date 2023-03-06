@@ -33,6 +33,7 @@ artikel_name VARCHAR(300) not NULL,
 artikel_beschreibung VARCHAR(5000) NULL,
 preis decimal(8,2) not NULL,
 kategorie VARCHAR(500) not NULL,
+bild_url VARCHAR(1000) null,
 FOREIGN KEY (kategorie) REFERENCES kategorie(kategorie)
 );
 

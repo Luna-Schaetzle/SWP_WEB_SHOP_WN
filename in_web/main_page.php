@@ -45,6 +45,7 @@ if ($result->num_rows > 0) {
   echo "<th>Beschreibung</th>";
   echo "<th>Preis [€]</th>";
   echo "<th>Kategorie</th>";
+  echo "<th>Bild</th>";
   echo "</tr>";
   while($row = $result->fetch_assoc()) {
     echo "<tr>";
@@ -53,22 +54,26 @@ if ($result->num_rows > 0) {
     echo "<td>" . $row["artikel_beschreibung"]. "</td>";
     echo "<td>" . $row["preis"]. "</td>";
     echo "<td>" . $row["kategorie"]. "</td>";
- 
+    echo "<td><img src='" . $row["bild_url"]. "' width='auto' height='150'> </td>";
+    
+    
     //echo "<td> <a href='update.php?id=" . $row["id"]. "'>Daten Updaten</a></td>";
     echo "</tr>";
     }
   echo "</table>";
 } else {
-  echo "Kategorie $kategorie ist nicht vorhanden";
+  echo "Kategorie $kategorie ist nicht vorhanden, ";
   echo "vorhandene Kategorien: ";
   $sql = "SELECT * from kategorie;";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
     echo "<ul>";
+   
     while($row = $result->fetch_assoc()) {
     echo "<li>".$row["kategorie"]."</li>";
     }
     echo "</ul>";
+    echo "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Stylized_uwu_emoticon.svg/1200px-Stylized_uwu_emoticon.svg.png' width='500' height='250'>";
   }
   else {
   echo "error 0"; 
