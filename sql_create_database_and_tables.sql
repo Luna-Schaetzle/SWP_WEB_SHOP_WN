@@ -18,13 +18,12 @@ CREATE TABLE kategorie (
 
 --DROP TABLE IF EXISTS user;
 CREATE TABLE user (
-user_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_name VARCHAR(300) not null UNIQUE primary KEY,
 user_psw VARCHAR(100) null,
-user_name VARCHAR(300) not null,
-user_nachname VARCHAR(300) not null,
-user_email VARCHAR(300) not null,
+user_email VARCHAR(300) not null
 );
 
+--Rechte 0 alle 1 add/delet 2 veiw, 
 
 --DROP TABLE IF EXISTS artikel;
 CREATE TABLE artikel (

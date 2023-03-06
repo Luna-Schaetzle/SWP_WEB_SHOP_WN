@@ -21,8 +21,9 @@ INSERT artikel (artikel_name,artikel_beschreibung,preis,kategorie,bild_url) VALU
 INSERT artikel (artikel_name,artikel_beschreibung,preis,kategorie,bild_url) VALUES ('Nicis "SFW" Sammlung','Sammlung',420.69,'SFW','https://www.incimages.com/uploaded_files/image/1920x1080/getty_525041723_970647970450098_70024.jpg');
 
 --user
---Insert user (user_psw,user_name,user_nachname,user_email) VALUES ('','','','');
-Insert user (user_psw,user_name,user_nachname,user_email) VALUES ('psw','te','test','te@test.com');
+--Insert user (user_name,user_psw,user_email) VALUES ('','','');
+Insert user (user_name,user_psw,user_email) VALUES ('Test_user','psw','te@test.com');
+Insert user (user_name,user_psw,user_email) VALUES ('Luna','pws','Luna@luna.com');
 
 
 --select *
