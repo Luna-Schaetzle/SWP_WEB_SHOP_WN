@@ -10,17 +10,20 @@ DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS kategorie;
 
 --Create tables in DB-Schema 
-CREATE TABLE kategorie (
-    kategorie VARCHAR(500) not null primary key UNIQUE
+CREATE TABLE kategorien (
+    kID int primary key AUTO_INCREMENT,
+    kategorie VARCHAR(500) not null 
 );
 
 --user table
 
 --DROP TABLE IF EXISTS user;
-CREATE TABLE user (
-user_name VARCHAR(300) not null UNIQUE primary KEY,
+CREATE TABLE users (
+user_id int   primary key AUTO_INCREMENT,
+user_nachname VARCHAR(300) not null   ,
+user_vorname VARCHAR(300) not null   ,
 user_psw VARCHAR(100) null,
-user_email VARCHAR(300) not null
+user_email VARCHAR(300) not null UNIQUE
 );
 
 --Rechte 0 alle 1 add/delet 2 veiw, 
@@ -31,13 +34,16 @@ artikel_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 artikel_name VARCHAR(300) not NULL,
 artikel_beschreibung VARCHAR(5000) NULL,
 preis decimal(8,2) not NULL,
-kategorie VARCHAR(500) not NULL,
+kID INTEGER not NULL,
 bild_url VARCHAR(1000) null,
-FOREIGN KEY (kategorie) REFERENCES kategorie(kategorie)
+FOREIGN KEY (kID) REFERENCES kategorien(kID)
 );
 
 --user_id INTEGER NOT NULL,
 --FOREIGN KEY (user_id) REFERENCES user(user_id),
 
+--warenkorb
+
+--Kaufhistorie
 
 
