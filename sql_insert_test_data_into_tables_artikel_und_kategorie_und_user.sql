@@ -30,3 +30,17 @@ Insert users (user_nachname, user_vorname, user_psw,user_email) VALUES ('Luna', 
 select * from kategorien;
 select * from artikel;
 select * from users;
+--(a.artikel_name,a.artikel_beschreibung,a.preis,a.bild_url,b.kategorie)
+
+SELECT *
+  from artikel a
+ inner join kategorien b
+ on a.kID = b.kID
+ where b.kategorie = 'Furry';
+
+ SELECT (a.artikel_name, a.artikel_beschreibung,a.preis,a.bild_url,a.kID, b.kID,b.kategorie)
+  from artikel a
+ inner join kategorien b
+ on a.kID = b.kID
+ where a.kID = 3;
+

@@ -20,8 +20,8 @@
 
 <h3>Kategorie: 
 <?php
-$kategorie = $_REQUEST["kategorie"];
-echo "$kategorie</h3>";
+$kategorien = $_REQUEST["kategorien"];
+echo "$kategorien</h3>";
 $servername = "localhost";
 $username = "root";
 $password = "zwiebel55";
@@ -33,7 +33,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
 
-$sql = "SELECT * from artikel where kategorie = '$kategorie';";
+$sql = "SELECT * from artikel a inner join kategorien b on a.kID = b.kID where b.kategorie = '$kategorien';";
+
+//$sql = "SELECT * from artikel where kategorien = '$kategorien';";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -44,17 +46,23 @@ if ($result->num_rows > 0) {
   echo "<th>Name</th>";
   echo "<th>Beschreibung</th>";
   echo "<th>Preis [€]</th>";
-  echo "<th>Kategorie</th>";
+  echo "<th>kID</th>";
   echo "<th>Bild</th>";
+  echo "<th>kID</th>";
+  echo "<th>Kategorien</th>";
   echo "</tr>";
+
+
   while($row = $result->fetch_assoc()) {
     echo "<tr>";
     echo "<td>" . $row["artikel_id"]. "</td>"; 
     echo "<td>" . $row["artikel_name"]. "</td>"; 
     echo "<td>" . $row["artikel_beschreibung"]. "</td>";
     echo "<td>" . $row["preis"]. "</td>";
-    echo "<td>" . $row["kategorie"]. "</td>";
+    echo "<td>" . $row["kID"]. "</td>";
     echo "<td><img src='" . $row["bild_url"]. "' width='auto' height='150'> </td>";
+      echo "<td>" . $row["kID"]. "</td>";
+      echo "<td>" . $row["kategorie"]. "</td>";
     
     
     //echo "<td> <a href='update.php?id=" . $row["id"]. "'>Daten Updaten</a></td>";
@@ -62,7 +70,7 @@ if ($result->num_rows > 0) {
     }
   echo "</table>";
 } else {
-  echo "Kategorie $kategorie ist nicht vorhanden, ";
+  echo "Kategorie $kategorien ist nicht vorhanden, ";
   echo "vorhandene Kategorien: ";
   $sql = "SELECT * from kategorie;";
   $result = $conn->query($sql);
