@@ -43,7 +43,26 @@ FOREIGN KEY (kID) REFERENCES kategorien(kID)
 --FOREIGN KEY (user_id) REFERENCES user(user_id),
 
 --warenkorb
+CREATE TABLE warenkorb (
+wid INTEGER Primary key AUTO_Increment,
+user_id integer not null,
+artikel_id INTEGER NOT NULL,
+artikel_name VARCHAR(300) not NULL,
+preis decimal(8,2) not NULL,
+gespreis decimal(8,2) not NULL,
+FOREIGN KEY (user_id) REFERENCES users(user_id),
+FOREIGN KEY (artikel_id) REFERENCES artikel(artikel_id)
+);
+
 
 --Kaufhistorie
+create Table kaufhistorie(
+kaufid INTEGER Primary key AUTO_Increment,
+kaufdatum date not null,
+user_id integer not null,
+artikel_id INTEGER NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users(user_id),
+FOREIGN KEY (artikel_id) REFERENCES artikel(artikel_id)
+);
 
 
