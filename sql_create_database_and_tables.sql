@@ -19,7 +19,7 @@ CREATE TABLE kategorien (
 
 --DROP TABLE IF EXISTS user;
 CREATE TABLE users (
-user_id int   primary key AUTO_INCREMENT,
+user_id int primary key AUTO_INCREMENT,
 user_nachname VARCHAR(300) not null   ,
 user_vorname VARCHAR(300) not null   ,
 user_psw VARCHAR(100) null,
