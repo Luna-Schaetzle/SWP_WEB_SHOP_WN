@@ -44,3 +44,11 @@ SELECT *
  on a.kID = b.kID
  where a.kID = 3;
 
+ SELECT (a.artikel_name, a.artikel_beschreibung,a.preis,a.bild_url,a.kID, b.kID,b.kategorie)
+  from artikel a
+ inner join kategorien b
+ on a.kID = b.kID
+ where a.kID = 3;
+
+ SELECT a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID where b.kategorie = 'Furry';
+
