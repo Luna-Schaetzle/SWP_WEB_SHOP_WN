@@ -22,16 +22,16 @@ if ($_SESSION["Email"] == null){
 ?>
 <p></p>
 <p></p>
-<p>Kategorie</p>
+
 <form method='post' action='main_page.php'>
-         <input type='text' name='kategorien'>
+         <input type='text' name='kategorien' placeholder='Kategorie'>
          <button type='submit'>suchen</button>
        </form>
 <p></p>
 
 <h3>Kategorie: 
 <?php
-$kategorien = $_REQUEST["kategorien"];
+@$kategorien = $_REQUEST["kategorien"];
 echo "$kategorien</h3>";
 //echo "<p>".$_SESSION["Email"]."</p>";
 $servername = "localhost";
@@ -46,7 +46,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
 
 //$sql = "SELECT * from artikel a inner join kategorien b on a.kID = b.kID where b.kategorie = '$kategorien';";
-$sql = "SELECT a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID where b.kategorie = '$kategorien';";
+if($kategorien == 'all'){
+    $sql = "SELECT a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID;";
+}
+else {
+    $sql = "SELECT a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID where b.kategorie = '$kategorien';";
+}
+
 
 //$sql = "SELECT * from artikel where kategorien = '$kategorien';";
 $result = $conn->query($sql);
@@ -88,10 +94,12 @@ if ($result->num_rows > 0) {
 } else {
   echo "Kategorie $kategorien ist nicht vorhanden / leer, ";
   echo "vorhandene Kategorien: ";
+  echo "<ul>";
+  echo "<li>all</li>";
   $sql = "SELECT * from kategorien;";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
-    echo "<ul>";
+
    
     while($row = $result->fetch_assoc()) {
     echo "<li>".$row["kategorie"]."</li>";

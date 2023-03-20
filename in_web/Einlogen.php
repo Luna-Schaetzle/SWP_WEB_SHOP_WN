@@ -15,8 +15,8 @@ session_start();
 <p></p>
 
 <?php
-$Email = $_REQUEST["Email"];
-$psw = $_REQUEST["psw"];
+@$Email = $_REQUEST["Email"];
+@$psw = $_REQUEST["psw"];
 
 $servername = "localhost";
 $username = "root";
@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
   if($row = $result->fetch_assoc()){
     if($row["user_psw"] == $psw){
         $_SESSION["Email"] = $Email;
-      header("Location: "."main_page.php");
+      header("Location: "."main_page.php?kategorien=all");
       echo  "<h1>Test</h1>";
     }
   }
