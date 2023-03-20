@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
 
@@ -22,6 +25,7 @@
 <?php
 $kategorien = $_REQUEST["kategorien"];
 echo "$kategorien</h3>";
+echo "<p>".$_SESSION["Email"]."</p>";
 $servername = "localhost";
 $username = "root";
 $password = "zwiebel55";
@@ -38,6 +42,8 @@ $sql = "SELECT a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild
 
 //$sql = "SELECT * from artikel where kategorien = '$kategorien';";
 $result = $conn->query($sql);
+
+//echo "<p>".$_SESSION["user"]."<p>";
 
 if ($result->num_rows > 0) {
   // output data of each row
