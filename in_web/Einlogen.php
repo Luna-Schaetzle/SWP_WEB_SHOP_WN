@@ -14,6 +14,9 @@ session_start();
        </form>
 <p></p>
 
+<p></p>
+<a href='register.php'>Register</a>
+
 <?php
 @$Email = $_REQUEST["Email"];
 @$psw = $_REQUEST["psw"];
