@@ -10,8 +10,16 @@ session_start();
 
 <h1>Web@Shop</h1>
 <p></p>
-<p>Die Kategorien</p>
 
+<p></p>
+<p>Die Kategorien</p>
+<?php
+echo "<p>User: ".$_SESSION["Email"]."</p>";
+echo "<a href='logout.php'>Logout</a>";
+if ($_SESSION["Email"] == null){
+    header("Location: logout.php");
+}
+?>
 <p></p>
 <p></p>
 <p>Kategorie</p>
@@ -25,7 +33,7 @@ session_start();
 <?php
 $kategorien = $_REQUEST["kategorien"];
 echo "$kategorien</h3>";
-echo "<p>".$_SESSION["Email"]."</p>";
+//echo "<p>".$_SESSION["Email"]."</p>";
 $servername = "localhost";
 $username = "root";
 $password = "zwiebel55";
