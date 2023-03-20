@@ -5,14 +5,14 @@
 <body>
 <p>Login</p>
 <form method='post' action='Einlogen.php'>
-         <input type='text' name='name' placeholder='Benutzer'> <br>
+         <input type='text' name='Email' placeholder='Email'> <br>
          <input type='password' name='psw' text='psw' placeholder='Password'> <br>
          <button type='submit'>Anmelden</button>
        </form>
 <p></p>
 
 <?php
-$name = $_REQUEST["name"];
+$Email = $_REQUEST["Email"];
 $psw = $_REQUEST["psw"];
 
 $servername = "localhost";
@@ -23,13 +23,13 @@ $dbname = "web_shop";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
-$sql = "SELECT user_psw from user where user_name = '$name';";
+$sql = "SELECT user_psw from users where user_email = '$Email';";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   if($row = $result->fetch_assoc()){
     if($row["user_psw"] == $psw){
-      header("Location: "."main_page.php?user=$name");
+      header("Location: "."main_page.php?user=$Email");
       echo  "<h1>Test</h1>";
     }
   }
