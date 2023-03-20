@@ -5,8 +5,8 @@
 <body>
 <p>Login</p>
 <form method='post' action='Einlogen.php'>
-         <input type='text' name='Email' placeholder='Email'> <br>
-         <input type='password' name='psw' text='psw' placeholder='Password'> <br>
+         <input type='text' name='Email' placeholder='Email' value=""> <br>
+         <input type='password' name='psw' text='psw' placeholder='Password' value=""> <br>
          <button type='submit'>Anmelden</button>
        </form>
 <p></p>
@@ -29,7 +29,8 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   if($row = $result->fetch_assoc()){
     if($row["user_psw"] == $psw){
-      header("Location: "."main_page.php?user=$Email");
+        $_SESSION["Email"] = $Email;
+      header("Location: "."main_page.php");
       echo  "<h1>Test</h1>";
     }
   }

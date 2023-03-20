@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
 
@@ -7,8 +10,16 @@
 
 <h1>Web@Shop</h1>
 <p></p>
-<p>Die Kategorien</p>
 
+<p></p>
+<p>Die Kategorien</p>
+<?php
+echo "<p>User: ".$_SESSION["Email"]."</p>";
+echo "<a href='logout.php'>Logout</a>";
+if ($_SESSION["Email"] == null){
+    header("Location: logout.php");
+}
+?>
 <p></p>
 <p></p>
 <p>Kategorie</p>
@@ -22,6 +33,7 @@
 <?php
 $kategorien = $_REQUEST["kategorien"];
 echo "$kategorien</h3>";
+//echo "<p>".$_SESSION["Email"]."</p>";
 $servername = "localhost";
 $username = "root";
 $password = "zwiebel55";
@@ -38,6 +50,8 @@ $sql = "SELECT a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild
 
 //$sql = "SELECT * from artikel where kategorien = '$kategorien';";
 $result = $conn->query($sql);
+
+//echo "<p>".$_SESSION["user"]."<p>";
 
 if ($result->num_rows > 0) {
   // output data of each row
