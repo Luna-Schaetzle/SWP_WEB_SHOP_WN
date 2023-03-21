@@ -58,7 +58,7 @@ else {
 
 // Seite datenholen.php anzeigen
     $_SESSION["Email"] = $user_email;
-    header("Location: main_page.php");
+    header("Location: main_page.php?kategorien=all");
 
 
 }
