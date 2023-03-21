@@ -47,14 +47,28 @@ else {
     }
 
     $sql = "insert into users values (null ,?,?,?,?)";
-    $sql = "insert into warenkorb values (null ,?,?,?,?)";
-
-// prepared statement
-
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssss", $user_nachname, $user_vorname, $user_psw, $user_email);
     @$stmt->execute();
     $stmt->close();
+
+    /*
+    $sql = "insert into warenkorb values (null ,?,?,?,?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssss", $user_nachname, $user_vorname, $user_psw, $user_email);
+    $stmt->execute();
+    $stmt->close();
+    */
+
+    $sql = "SELECT user_id from users where user_email = '$user_email';";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row"
+        if ($row = $result->fetch_assoc()) {
+            $idofuser = $row["user_id"];
+            $_SESSION["user_id"] = $idofuser;
+        }
+    }
     $conn->close();
 
 // Seite datenholen.php anzeigen

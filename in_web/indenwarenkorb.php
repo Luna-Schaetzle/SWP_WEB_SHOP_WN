@@ -25,9 +25,18 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
 
+$sql = "insert into warenkorb values (?,?,?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("iii", $artikel_id, $_SESSION["user_id"], $quant);
+@$stmt->execute();
+$stmt->close();
+
+
 //insert
 
 $conn->close();
+header("Location: main_page.php?kategorien=all");
+
 ?>
 </body>
 </html>

@@ -52,3 +52,5 @@ SELECT *
 
  SELECT a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID where b.kategorie = 'Furry';
 
+
+select a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url,b.quant from artikel a inner join warenkorb b on

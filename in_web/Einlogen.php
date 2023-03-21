@@ -36,6 +36,15 @@ if ($result->num_rows > 0) {
   if($row = $result->fetch_assoc()){
     if($row["user_psw"] == $psw){
         $_SESSION["Email"] = $Email;
+        $sql = "SELECT user_id from users where user_email = '$Email';";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row"
+            if ($row = $result->fetch_assoc()) {
+                $idofuser = $row["user_id"];
+                $_SESSION["user_id"] = $idofuser;
+            }
+        }
       header("Location: "."main_page.php?kategorien=all");
       echo  "<h1>Test</h1>";
     }

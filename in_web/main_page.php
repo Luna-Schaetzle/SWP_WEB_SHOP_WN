@@ -15,7 +15,9 @@ session_start();
 <p>Die Kategorien</p>
 <?php
 echo "<p>User: ".$_SESSION["Email"]."</p>";
-echo "<a href='logout.php'>Logout</a>";
+//echo "<p>User ID: ".$_SESSION["user_id"]."</p>";
+echo "<a href='logout.php'>Logout</a><br>";
+echo "<br><a href='showwarenkorb.php'>Warenkorb</a>";
 if ($_SESSION["Email"] == null){
     header("Location: logout.php");
 }
