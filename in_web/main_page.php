@@ -47,10 +47,10 @@ if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
 
 //$sql = "SELECT * from artikel a inner join kategorien b on a.kID = b.kID where b.kategorie = '$kategorien';";
 if($kategorien == 'all'){
-    $sql = "SELECT a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID;";
+    $sql = "SELECT a.artikel_id,a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID;";
 }
 else {
-    $sql = "SELECT a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID where b.kategorie = '$kategorien';";
+    $sql = "SELECT a.artikel_id,a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID where b.kategorie = '$kategorien';";
 }
 
 
@@ -63,7 +63,7 @@ if ($result->num_rows > 0) {
   // output data of each row
   echo "<table border='1'>";
   echo "<tr>";
-  //echo "<th>Artikel ID</th>";
+  echo "<th>Artikel ID</th>";
   echo "<th>Name</th>";
   echo "<th>Beschreibung</th>";
   echo "<th>Preis [€]</th>";
@@ -77,13 +77,19 @@ if ($result->num_rows > 0) {
 
   while($row = $result->fetch_assoc()) {
     echo "<tr>";
-    //echo "<td>" . $row["artikel_id"]. "</td>"; 
+    echo "<td>" . $row["artikel_id"]. "</td>";
     echo "<td>" . $row["artikel_name"]. "</td>"; 
     echo "<td>" . $row["artikel_beschreibung"]. "</td>";
     echo "<td>" . $row["preis"]. "</td>";
     //echo "<td>" . $row["kID"]. "</td>";
     echo "<td>" . $row["kategorie"]. "</td>";
     echo "<td><img src='" . $row["bild_url"]. "' width='auto' height='150'> </td>";
+    echo "<td><form method='post' action='indenwarenkorb.php?artikel_id=". $row["artikel_id"]."'>";
+    echo "     <input type='text' name='quant' placeholder='mänge' value='1'>";
+    echo "         <button type='submit'>In den Warenkorb</button>";
+    echo "      </form></td>";
+
+
       //echo "<td>" . $row["kID"]. "</td>";
       
     

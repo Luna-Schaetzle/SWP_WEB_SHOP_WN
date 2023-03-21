@@ -47,6 +47,7 @@ else {
     }
 
     $sql = "insert into users values (null ,?,?,?,?)";
+    $sql = "insert into warenkorb values (null ,?,?,?,?)";
 
 // prepared statement
 

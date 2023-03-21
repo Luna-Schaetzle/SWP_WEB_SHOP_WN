@@ -8,6 +8,7 @@ use web_shop;
 DROP TABLE IF EXISTS artikel;
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS kategorie;
+DROP TABLE IF EXISTS warenkorb;
 
 --Create tables in DB-Schema 
 CREATE TABLE kategorien (
@@ -42,16 +43,23 @@ FOREIGN KEY (kID) REFERENCES kategorien(kID)
 --user_id INTEGER NOT NULL,
 --FOREIGN KEY (user_id) REFERENCES user(user_id),
 
---warenkorb
+--warenkorb alt
 CREATE TABLE warenkorb (
 wid INTEGER Primary key AUTO_Increment,
 user_id integer not null,
-artikel_id INTEGER NOT NULL,
 artikel_name VARCHAR(300) not NULL,
 preis decimal(8,2) not NULL,
 gespreis decimal(8,2) not NULL,
-FOREIGN KEY (user_id) REFERENCES users(user_id),
-FOREIGN KEY (artikel_id) REFERENCES artikel(artikel_id)
+FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+--warenkorb neu
+Create Table warenkorb(
+artikel_id INTEGER NOT NULL,
+user_id integer not null,
+quant integer,
+FOREIGN KEY (artikel_id) REFERENCES artikel(artikel_id),
+FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 
