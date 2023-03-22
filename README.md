@@ -7,14 +7,12 @@ This is where the files are for our SWP web projekt called WEB@shop
 ### Test Daten einsetzen
 Wir benötigen noch ein Paar mehr Daten
 
-### Warenkorb 
-#### Artikel hinzufügen
-Man hatt einen Butoon bei den Artikel bei denen man eine
-gewisse anzahl an Artikel Hinzufügen kann in den Warenkorb
+### Eventuell: Admin
+Einen Admin der Daten Hinzugügen kann
+
+### Warenkorb
 #### Warenkob anschauen
-- Artikel aus dem Warenkob löschen
-- checkout: 
-    - Gesammt Preis Anzeigen
+- checkout:
     - Bezahlne -> Artikel kommen in die Kaufhistorie und 
     werdem im Warenkorb gelöscht
       
