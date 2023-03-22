@@ -30,6 +30,12 @@ if ($_SESSION["Email"] == null){
          <button type='submit'>suchen</button>
        </form>
 <p></p>
+<?php
+if ($_SESSION["Email"] == "Admin"){
+    echo "<a href='eingabe_der_artikel_admin.html'>admin insert</a><br>";
+}
+?>
+<p></p>
 
 <h3>Kategorie: 
 <?php
@@ -87,7 +93,7 @@ if ($result->num_rows > 0) {
     echo "<td>" . $row["kategorie"]. "</td>";
     echo "<td><img src='" . $row["bild_url"]. "' width='auto' height='150'> </td>";
     echo "<td><form method='post' action='indenwarenkorb.php?artikel_id=". $row["artikel_id"]."'>";
-    echo "     <input type='text' name='quant' placeholder='mänge' value='1'>";
+    echo "     <input type='number' name='quant' placeholder='mänge' value='1'>";
     echo "         <button type='submit'>In den Warenkorb</button>";
     echo "      </form></td>";
 
