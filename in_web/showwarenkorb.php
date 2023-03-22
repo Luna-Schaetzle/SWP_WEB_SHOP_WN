@@ -34,7 +34,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
 
 
-$sql = "select a.artikel_id,a.artikel_name, a.artikel_beschreibung,a.preis,b.quant,a.bild_url from artikel a inner join warenkorb b on a.artikel_id = b.artikel_id where b.user_id = ".$_SESSION["user_id"].";";
+$sql = "select a.artikel_id,a.artikel_name, a.artikel_beschreibung,b.preis,b.quant,a.bild_url from artikel a inner join warenkorb b on a.artikel_id = b.artikel_id where b.user_id = ".$_SESSION["user_id"].";";
 
 $result = $conn->query($sql);
 
@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
     echo "<th>Artikel ID</th>";
     echo "<th>Name</th>";
     echo "<th>Beschreibung </th>";
-    echo "<th>Preis [€]</th>";
+    echo "<th>Gesamtpreis [€]</th>";
 //echo "<th>kID</th>";
     echo "<th>Mänge</th>";
     echo "<th>Bild </th>";
@@ -84,10 +84,21 @@ if ($result->num_rows > 0) {
     echo "</table>";
 }
 
+
 //$sql = "select sum(quant) from warenkorb where user_id = ".$_SESSION["user_id"].";";
-$sql = "select sum(a.preis) from artikel a inner join warenkorb b on a.artikel_id = b.artikel_id where b.user_id = ".$_SESSION["user_id"].";";
+$sql = "select sum(preis) from warenkorb where user_id = ".$_SESSION["user_id"].";";
 
 $result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+// output data of each row
+    //echo "<h4>Gesamtsumme: ";
+
+    while ($row = $result->fetch_assoc()) {
+        echo "<h4>Gesamtsumme: ".$row["sum(preis)"]."</h4>";
+    }
+    //echo "</h4>";
+}
 
 //echo "<p>".$_SESSION["user"]."<p>";
 
