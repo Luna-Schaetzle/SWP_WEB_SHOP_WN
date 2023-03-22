@@ -48,13 +48,15 @@ if ($result->num_rows > 0) {
       header("Location: "."main_page.php?kategorien=all");
       echo  "<h1>Test</h1>";
     }
+    else  {
+          echo  "<h1>Falsches Passwort</h1>";
+        //header("Location: "."Einlogen.php?falschespsw=1");
+    }
   }
-  else{
-    echo  "<h1>Falsches Passwort</h1>";
-  }
+    echo "<h1>User oder Passwort Falsch</h1>";
 }
 else{
-  echo "<h1>User oder Passwort Falsch</h1>";
+  //echo "<h1>User oder Passwort Falsch</h1>";
 
 }
 

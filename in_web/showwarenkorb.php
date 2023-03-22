@@ -34,7 +34,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
 
 
-$sql = "select a.artikel_id,a.artikel_name, a.artikel_beschreibung,a.preis,b.quant,a.bild_url from artikel a inner join warenkorb b on a.artikel_id = b.artikel_id where b.user_id = 1;";
+$sql = "select a.artikel_id,a.artikel_name, a.artikel_beschreibung,a.preis,b.quant,a.bild_url from artikel a inner join warenkorb b on a.artikel_id = b.artikel_id where b.user_id = ".$_SESSION["user_id"].";";
 
 $result = $conn->query($sql);
 
@@ -82,6 +82,17 @@ if ($result->num_rows > 0) {
         echo "</tr>";
     }
     echo "</table>";
+}
+
+//$sql = "select sum(quant) from warenkorb where user_id = ".$_SESSION["user_id"].";";
+$sql = "select sum(a.preis) from artikel a inner join warenkorb b on a.artikel_id = b.artikel_id where b.user_id = ".$_SESSION["user_id"].";";
+
+$result = $conn->query($sql);
+
+//echo "<p>".$_SESSION["user"]."<p>";
+
+if ($result->num_rows > 0) {
+
 }
 
 ?>
