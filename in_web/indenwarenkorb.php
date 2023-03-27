@@ -7,6 +7,9 @@ session_start();
 <p>Test</p>
 
 <?php
+if ($_SESSION["Email"] == null){
+    header("Location: logout.php");
+}
 $artikel_id = $_REQUEST["artikel_id"];
 $quant = $_REQUEST["quant"];
 

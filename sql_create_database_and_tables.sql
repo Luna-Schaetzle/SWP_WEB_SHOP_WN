@@ -58,7 +58,7 @@ Create Table warenkorb(
 artikel_id INTEGER NOT NULL,
 user_id integer not null,
 quant integer,
-preis decimal(8,2),
+preis decimal(20,2),
 FOREIGN KEY (artikel_id) REFERENCES artikel(artikel_id),
 FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

@@ -5,17 +5,9 @@ session_start();
 <html>
 <body>
 
-<h1>Registrieren: </h1>
+</body>
+</html>
 
-<form method='post' action='register.php'>
-    <input type='text' name='user_nachname' placeholder='Nachname' value=""> <br>
-    <input type='text' name='user_vorname' placeholder='Vorname' value=""> <br>
-    <input type='text' name='user_email' placeholder='E Mail' value=""> <br>
-    <input type='password' name='user_psw' placeholder='Password' value=""> <br>
-    <input type='password' name='user_psw_repeat' placeholder='Password wiederholen' value=""> <br>
-    <button type='submit'>Anmelden</button>
-</form>
-<p></p>
 <?php
 @$fail = $_REQUEST["error"];
 if ($fail == 1){
@@ -46,11 +38,11 @@ else {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "insert into users values (null ,?,?,?,?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $user_nachname, $user_vorname, $user_psw, $user_email);
+    @$sql = "insert into users values (null ,?,?,?,?)";
+    @$stmt = $conn->prepare($sql);
+    @$stmt->bind_param("ssss", $user_nachname, $user_vorname, $user_psw, $user_email);
     @$stmt->execute();
-    $stmt->close();
+    @$stmt->close();
 
     /*
     $sql = "insert into warenkorb values (null ,?,?,?,?)";
@@ -79,5 +71,3 @@ else {
 }
 
 ?>
-</body>
-</html>

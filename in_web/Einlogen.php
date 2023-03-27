@@ -3,20 +3,64 @@ session_start();
 ?>
 <html>
 <head>
-
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+        div {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="email"],
+        input[type="password"] {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        button:hover {
+            background-color: #0069d9;
+        }
+        a {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-<p>Login</p>
-<form method='post' action='Einlogen.php'>
-         <input type='email' name='Email' placeholder='Email' value=""> <br>
-         <input type='password' name='psw' text='psw' placeholder='Password' value=""> <br>
-         <button type='submit'>Anmelden</button>
-       </form>
-<p></p>
+<div>
+<form method="post" action="Einlogen.php">
+    <h1>Login</h1>
+    <input type="email" name="Email" placeholder="Email" value="">
+    <input type="password" name="psw" text="psw" placeholder="Password" value="">
+    <button type="submit">Anmelden</button>
 
-<p></p>
-<a href='register.php'>Register</a>
-
+</form>
+<button onclick="window.location.href='register.html';">Registrieren</button>
+</div>
 <?php
 @$Email = $_REQUEST["Email"];
 @$psw = $_REQUEST["psw"];
