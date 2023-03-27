@@ -6,6 +6,9 @@ session_start();
     <title>Login</title>
     <style>
         body {
+            background-image: url('https://img.freepik.com/free-vector/set-torii-gates-water_52683-44986.jpg');
+            background-size: auto;
+            background-position: center;
             background-color: #f2f2f2;
         }
         div {

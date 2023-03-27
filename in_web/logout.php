@@ -13,6 +13,7 @@ session_unset();
 session_destroy();
 
 header("Location: Einlogen.php");
+exit();
 ?>
 </body>
 </html>
