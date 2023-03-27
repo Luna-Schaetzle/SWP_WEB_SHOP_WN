@@ -8,7 +8,7 @@ session_start();
 <body>
 <p>Login</p>
 <form method='post' action='Einlogen.php'>
-         <input type='text' name='Email' placeholder='Email' value=""> <br>
+         <input type='email' name='Email' placeholder='Email' value=""> <br>
          <input type='password' name='psw' text='psw' placeholder='Password' value=""> <br>
          <button type='submit'>Anmelden</button>
        </form>
@@ -53,7 +53,7 @@ if ($result->num_rows > 0) {
         //header("Location: "."Einlogen.php?falschespsw=1");
     }
   }
-    echo "<h1>User oder Passwort Falsch</h1>";
+  //echo "<h1>User oder Passwort Falsch</h1>";
 }
 else{
   //echo "<h1>User oder Passwort Falsch</h1>";

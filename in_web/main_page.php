@@ -31,7 +31,7 @@ if ($_SESSION["Email"] == null){
        </form>
 <p></p>
 <?php
-if ($_SESSION["Email"] == "Admin"){
+if ($_SESSION["Email"] == "Admin@Admin"){
     echo "<a href='eingabe_der_artikel_admin.html'>admin insert</a><br>";
 }
 ?>
