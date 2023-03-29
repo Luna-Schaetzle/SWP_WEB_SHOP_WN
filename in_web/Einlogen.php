@@ -4,11 +4,11 @@ session_start();
 <html>
 <head>
     <title>Login</title>
-    <style>
+    <style>  background-image: url('https://img.freepik.com/free-vector/set-torii-gates-water_52683-44986.jpg');
+        background-size: auto;
+        background-position: center;
         body {
-            background-image: url('https://img.freepik.com/free-vector/set-torii-gates-water_52683-44986.jpg');
-            background-size: auto;
-            background-position: center;
+
             background-color: #f2f2f2;
         }
         div {
@@ -72,6 +72,7 @@ $servername = "localhost";
 $username = "root";
 $password = "zwiebel55";
 $dbname = "web_shop";
+
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
