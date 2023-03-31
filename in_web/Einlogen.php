@@ -1,14 +1,15 @@
 <?php
 session_start();
+//https://i.pinimg.com/originals/5f/26/e5/5f26e5822be11df1d3fbb53c938b8328.gif
 ?>
 <html>
 <head>
     <title>Login</title>
-    <style>  background-image: url('https://img.freepik.com/free-vector/set-torii-gates-water_52683-44986.jpg');
-        background-size: auto;
-        background-position: center;
+    <style>
         body {
-
+            background-image: url('https://media.tenor.com/v9sdELSzVw4AAAAM/nyan-cat-kawaii.gif');
+            background-size: auto;
+            background-position: center;
             background-color: #f2f2f2;
         }
         div {
