@@ -211,6 +211,8 @@ if ($result->num_rows > 0) {
 
 ?>
 
+<button onclick="window.location.href='jetztkaufen.php';">jetzt kaufen</button>
+
 
 
 </body>

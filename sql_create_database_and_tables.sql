@@ -74,4 +74,13 @@ FOREIGN KEY (user_id) REFERENCES users(user_id),
 FOREIGN KEY (artikel_id) REFERENCES artikel(artikel_id)
 );
 
+create Table adresse(
+user_id integer not null,
+strasse varchar(300) not null,
+hausnummer varchar(300) not null,
+plz varchar(300) not null,
+ort varchar(300) not null,
+FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
 
