@@ -9,16 +9,16 @@ session_start();
 
 <?php
 $strasse = $_REQUEST["strasse"];
+$hausnummer = $_REQUEST["hausnummer"];
 $plz = $_REQUEST["plz"];
 $ort = $_REQUEST["ort"];
-$land = $_REQUEST["land"];
 $bezahlmethode = $_REQUEST["bezahlmethode"];
 //$bestätigung = $_REQUEST["bestätigung"];
 
 echo "<p>Strasse: ".$strasse."</p>";
+echo "<p>Hausnummer: ".$hausnummer."</p>";
 echo "<p>PLZ: ".$plz."</p>";
 echo "<p>Ort: ".$ort."</p>";
-echo "<p>Land: ".$land."</p>";
 echo "<p>Bezahlmethode: ".$bezahlmethode."</p>";
 //echo "<p>Bestätigung: ".$bestätigung."</p>";
 
