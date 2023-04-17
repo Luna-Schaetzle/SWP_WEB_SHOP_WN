@@ -70,17 +70,20 @@ kaufid INTEGER Primary key AUTO_Increment,
 kaufdatum date not null,
 user_id integer not null,
 artikel_id INTEGER NOT NULL,
+methode varchar(300) not null,
 FOREIGN KEY (user_id) REFERENCES users(user_id),
 FOREIGN KEY (artikel_id) REFERENCES artikel(artikel_id)
 );
 
+
+--adresse
 create Table adresse(
-user_id integer not null,
+kaufid INTEGER Primary key AUTO_Increment,
 strasse varchar(300) not null,
 hausnummer varchar(300) not null,
 plz varchar(300) not null,
 ort varchar(300) not null,
-FOREIGN KEY (user_id) REFERENCES users(user_id)
+Foreign key (kaufid) references kaufhistorie(kaufid)
 );
 
 

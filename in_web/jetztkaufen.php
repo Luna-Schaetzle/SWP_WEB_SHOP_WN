@@ -37,7 +37,7 @@ session_start();
             border: none;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
         }
-        button, h4 {
+        button, h3 {
             display: block;
             margin: 20px auto;
             padding: 10px 20px;
@@ -97,20 +97,36 @@ if ($result->num_rows > 0) {
     //echo "<h4>Gesamtsumme: ";
 
     while ($row = $result->fetch_assoc()) {
-        echo "<h4>Gesamtsumme: ".$row["sum(preis)"]." €</h4><br>";
+        echo "<h3>Gesamtsumme: ".$row["sum(preis)"]." €</h3><br>";
     }
     //echo "</h4>";
 }
 $conn->close();
 
 
-echo "<ol><li>Adresse:";
-       echo "<form action='jetztkaufen.php' method='post'>";
+echo "<ol><li><h4>Adresse:</h4>";
+echo "<form action='gekauft.php' method='post'>";
+//echo "<form action='jetztkaufen.php' method='post'>";
        echo     "<input type='text' name='strasse' placeholder='strasse'>";
        echo    "<input type='text' name='hausnummer' placeholder='hausnummer'>";
        echo    "<input type='text' name='plz' placeholder='plz'>";
        echo    "<input type='text' name='ort' placeholder='ort'>";
-echo "</form></li></ol>";
+//echo "</form></li>";
+echo "<br><li><h4>Bezahlmethode:</h4>";
+//echo "<form action='jetztkaufen.php' method='post'>";
+echo "<input type='radio' name='bezahlmethode' value='paypal'>Paypal<br>";
+echo "<input type='radio' name='bezahlmethode' value='kreditkarte'>Kreditkarte<br>";
+echo "<input type='radio' name='bezahlmethode' value='rechnung'>Rechnung<br>";
+//echo "</form></li>";
+echo "<br><li><h4>Bestätigung:</h4>";
+//echo "<form action='jetztkaufen.php' method='post'>";
+echo "<input type='checkbox' name='bestaetigung' value='bestaetigung'>Ich habe die AGB gelesen und akzeptiere diese<br>";
+//echo "</form></li>";
+echo "<br><li>Bestellung abschicken:";
+
+echo "<input type='submit' name='abschicken' value='abschicken'>";
+echo "</form></li>";
+echo "</ol>";
 
 ?>
 </body>
