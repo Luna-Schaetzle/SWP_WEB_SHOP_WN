@@ -6,7 +6,7 @@ use web_shop;
 
 --delete tables in DB-Schema 
 DROP TABLE IF EXISTS artikel;
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS kategorie;
 DROP TABLE IF EXISTS warenkorb;
 

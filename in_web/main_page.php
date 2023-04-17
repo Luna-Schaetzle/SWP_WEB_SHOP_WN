@@ -57,13 +57,15 @@ session_start();
             background-color: #555;
         }
 
-        table {
+        table, div {
             margin: 0 5%;
             border-collapse: collapse;
             text-align: center;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
+
+
 
         th, td {
             padding: 10px;
@@ -210,7 +212,7 @@ if ($result->num_rows > 0) {
     }
   echo "</table>";
 } else {
-  echo "Kategorie $kategorien ist nicht vorhanden / leer, ";
+  echo "<div> Kategorie $kategorien ist nicht vorhanden / leer, ";
   echo "vorhandene Kategorien: ";
   echo "<ul>";
   echo "<li>all</li>";
@@ -222,7 +224,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
     echo "<li>".$row["kategorie"]."</li>";
     }
-    echo "</ul>";
+    echo "</ul><div>";
     
     echo "<p></p><p></p><p></p><p></p>";
     echo "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Stylized_uwu_emoticon.svg/1200px-Stylized_uwu_emoticon.svg.png' width='500' height='250'>";
