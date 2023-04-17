@@ -45,7 +45,11 @@ echo "<p>Quant: ".$sumepreis."</p>";
 if ($quant > 0) {
 // Create connection
 
-    $sql = "insert into warenkorb values (?,?,?,?)";
+    $sql = "INSERT INTO warenkorb (artikel_id, user_id , quant, preis)
+VALUES (?, ?, ?, ?)
+ON DUPLICATE KEY UPDATE
+     quant = quant + VALUES(quant),
+    preis = preis + VALUES(preis);";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("iiid", $artikel_id, $_SESSION["user_id"], $quant, $sumepreis);
     @$stmt->execute();

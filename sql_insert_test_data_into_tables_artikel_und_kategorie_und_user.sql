@@ -54,3 +54,16 @@ SELECT *
 
 
     select a.artikel_name, a.artikel_beschreibung,a.preis,a.bild_url,b.quant from artikel a inner join warenkorb b on a.artikel_id = b.artikel_id where b.user_id = 1;
+
+
+INSERT INTO warenkorb (artikel_id, user_id , quant, preis)
+VALUES (?, ?, ?, ?)
+ON DUPLICATE KEY UPDATE
+     quant = quant + VALUES(quant),
+    preis = preis + VALUES(preis);
+
+    INSERT INTO warenkorb (artikel_id, user_id , quant, preis)
+VALUES (2, 1, 2, 199.98)
+ON DUPLICATE KEY UPDATE
+    quant = quant + VALUES(quant),
+    preis = preis + VALUES(preis);

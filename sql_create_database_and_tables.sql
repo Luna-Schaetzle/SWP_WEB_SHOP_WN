@@ -55,7 +55,7 @@ FOREIGN KEY (user_id) REFERENCES users(user_id)
 
 --warenkorb neu
 Create Table warenkorb(
-artikel_id INTEGER NOT NULL,
+artikel_id INTEGER NOT NULL unique,
 user_id integer not null,
 quant integer,
 preis decimal(20,2),
