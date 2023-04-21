@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="web_shop@localhost">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.45">
+    <root id="1">
+      <DefaultCasing>lower/lower</DefaultCasing>
+      <ServerVersion>8.0.23</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="_e"/>
+    <schema id="3" parent="1" name="_te"/>
+    <schema id="4" parent="1" name="aetherium_sql"/>
+    <schema id="5" parent="1" name="anlegenphpmyadmin"/>
+    <schema id="6" parent="1" name="app3"/>
+    <schema id="7" parent="1" name="artikledb"/>
+    <schema id="8" parent="1" name="autos_zahlen"/>
+    <schema id="9" parent="1" name="db_contacts"/>
+    <schema id="10" parent="1" name="employees"/>
+    <schema id="11" parent="1" name="gebueren"/>
+    <schema id="12" parent="1" name="infi"/>
+    <schema id="13" parent="1" name="infi_2"/>
+    <schema id="14" parent="1" name="information_schema"/>
+    <schema id="15" parent="1" name="j_ue_2"/>
+    <schema id="16" parent="1" name="joinsbsp"/>
+    <schema id="17" parent="1" name="m000db"/>
+    <schema id="18" parent="1" name="m001db"/>
+    <schema id="19" parent="1" name="m002db"/>
+    <schema id="20" parent="1" name="m003db"/>
+    <schema id="21" parent="1" name="m004db"/>
+    <schema id="22" parent="1" name="mysql"/>
+    <schema id="23" parent="1" name="notwow"/>
+    <schema id="24" parent="1" name="performance_schema"/>
+    <schema id="25" parent="1" name="phpmyadmin"/>
+    <schema id="26" parent="1" name="playerdata_01"/>
+    <schema id="27" parent="1" name="sakila"/>
+    <schema id="28" parent="1" name="sys"/>
+    <schema id="29" parent="1" name="tel"/>
+    <schema id="30" parent="1" name="test"/>
+    <schema id="31" parent="1" name="test2"/>
+    <schema id="32" parent="1" name="test_test_db"/>
+    <schema id="33" parent="1" name="unoscorboard"/>
+    <schema id="34" parent="1" name="users_test"/>
+    <schema id="35" parent="1" name="view05m000"/>
+    <schema id="36" parent="1" name="view05m001"/>
+    <schema id="37" parent="1" name="web_shop">
+      <Current>1</Current>
+    </schema>
+    <schema id="38" parent="1" name="world"/>
+  </database-model>
+</dataSource>
