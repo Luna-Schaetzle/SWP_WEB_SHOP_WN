@@ -48,7 +48,7 @@
     <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/sql_create_database_and_tables.sql" connection-id="1e561c09-2f1c-412c-ba53-501024a1e8f9" session-id="MAIN" current-schema="web_shop" />
+    <mapping file-url="file://$PROJECT_DIR$/sql_insert_test_data_into_tables_artikel_und_kategorie_und_user.sql" connection-id="1e561c09-2f1c-412c-ba53-501024a1e8f9" session-id="MAIN" current-schema="web_shop" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
