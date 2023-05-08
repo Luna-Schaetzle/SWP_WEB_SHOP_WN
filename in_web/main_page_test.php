@@ -170,26 +170,65 @@ if ($_SESSION["Email"] == "Admin@Admin"){
     <option value="SWP">SWP</option>
     <option value="IT">IT</option>
 </select>
-<button onclick="datenHolen()">Daten holen</button>
+<button onclick="datenholen()">Daten holen</button>
 <!---<h3>Kategorie:</h3>-->
 
     <script>
 
-
-        function datenHolen() {
-            var kategorie = document.getElementById("kategorie").value;
-            var url = "http://localhost:8080/warenkorb.php?kategorie=" + kategorie;
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", url, true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var antwort = xhr.responseText;
-                    document.getElementById("inhalt").innerHTML = antwort;
-                }
+        function datenholen() {
+            // AJAX Request aufbauen
+            let x = new XMLHttpRequest();
+            // Was ist zu tun, wenn die Daten vom Server kommen
+            x.onload = function() {
+                let arr  = JSON.parse(this.responseText);
+                document.getElementById("inhalt").innerHTML =
+                    formatResultAsHtmlTable(arr);
             };
-            xhr.send();
+            // Wer am Server liest die Daten
+            // true -> asynchrone Abarbeitung
+            x.open("GET","get_from_db.php", true);
+            // Request senden
+            x.send();
         }
 
+
+
+        function show_artikel(idvalue) {
+            // Objekt mit Parameterwerten als Attribute aufbauen
+            let obj = {
+                id: idvalue"
+            };
+            // und in einen String umwandeln
+            let params = JSON.stringify(obj);
+            // AJAX Request aufbauen
+            let x = new XMLHttpRequest();
+            // Was ist zu tun, wenn die Daten vom Server kommen
+            x.onload = function() {
+                let arr  = JSON.parse(this.responseText);
+                document.getElementById("artikeldiv").innerHTML =
+                    formatResultAsHtmlDefinitionList(arr);
+            };
+
+            // Wer am Server liest die Daten
+            // true -> asynchrone Abarbeitung
+            x.open("POST","get_from_kategorie.php?id=" , true);
+            // Definiert das Format der Parameter beim Senden
+            x.setRequestHeader("Content-type",
+                "application/x-www-form-urlencoded");
+            // Request senden mit Parameter Werten
+            x.send("params="+params);
+        }
+
+        // Nun  als HTLM Definitionlist formatieren
+        function formatResultAsHtmlDefinitionList(arr) {
+            let s = "<dl>";
+            for (let i = 0; i< arr.length; i++) {
+                let obj = arr[i];
+                s += "<dt >"+obj.kopfzeile+"</dt>";
+                s += "<dd>"+obj.zusammenfassung+"</dd>";
+            }
+            return s + "</dl>";
+        }
 
     </script>
 
