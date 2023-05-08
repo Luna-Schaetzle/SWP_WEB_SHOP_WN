@@ -18,6 +18,7 @@ CREATE TABLE kategorien (
 
 --user table
 
+
 --DROP TABLE IF EXISTS user;
 CREATE TABLE users (
 user_id int primary key AUTO_INCREMENT,

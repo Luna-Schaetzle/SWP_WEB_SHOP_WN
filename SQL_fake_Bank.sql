@@ -9,4 +9,5 @@ create table bankaccount(
 insert into bankaccount values(1,'admin','admin',1000000);
 insert into bankaccount values(2,'user','user',1000000);
 
+
 select * from bankaccount;
