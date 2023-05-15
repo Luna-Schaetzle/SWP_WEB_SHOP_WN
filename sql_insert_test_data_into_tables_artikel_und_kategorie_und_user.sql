@@ -21,6 +21,13 @@ INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('F
 INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('USB Kabel','Einfaches USB Kabel',1.99,4,'https://snpi.dell.com/snp/images/products/large/de-at~A6927546/A6927546.jpg');
 INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('Nicis "SFW" Sammlung','Sammlung',420.69,5,'https://www.incimages.com/uploaded_files/image/1920x1080/getty_525041723_970647970450098_70024.jpg');
 
+INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('HDMI kapel','HDMI kapel',1.99,4,'https://www.heimwerker-test.de/images/testbilder/thumb_big/stiga-kehrmaschine-swp-355-rund-ums-haus-54865.jpg');
+INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('Tastertur','Tastertur',1.99,4,'https://www.heimwerker-test.de/images/testbilder/thumb_big/stiga-kehrmaschine-swp-355-rund-ums-haus-54865.jpg');
+INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('Maus','Maus',1.99,4,'https://www.heimwerker-test.de/images/testbilder/thumb_big/stiga-kehrmaschine-swp-355-rund-ums-haus-54865.jpg');
+INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('Monitor','Monitor',1.99,4,'https://www.heimwerker-test.de/images/testbilder/thumb_big/stiga-kehrmaschine-swp-355-rund-ums-haus-54865.jpg');
+INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('PC','PC',1.99,4,'https://www.heimwerker-test.de/images/testbilder/thumb_big/stiga-kehrmaschine-swp-355-rund-ums-haus-54865.jpg');
+INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('Laptop','Laptop',1.99,4,'https://www.heimwerker-test.de/images/testbilder/thumb_big/stiga-kehrmaschine-swp-355-rund-ums-haus-54865.jpg');
+
 --user
 --Insert users (user_nachname, user_vorname, user_psw,user_email) VALUES ('','','','');
 Insert users (user_nachname, user_vorname, user_psw,user_email) VALUES ('Test','user','psw','te@test.com');
