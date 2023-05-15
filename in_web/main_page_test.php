@@ -164,18 +164,19 @@ if ($_SESSION["Email"] == "Admin@Admin"){
 ?>
 <p></p>
 <div id="inhalt"></div>
-<select id="kategorie">
+<select id="kategorie" onclick="show_artikel()">
     <option value="communism">communism</option>
     <option value="Furry">Furry</option>
     <option value="SWP">SWP</option>
     <option value="IT">IT</option>
 </select>
-<button onclick="datenholen()">Daten holen</button>
+<!---<button onclick="show_artikel()">Daten holen</button>-->
 <!---<h3>Kategorie:</h3>-->
 
     <script>
 
         function datenholen() {
+            /*
             // AJAX Request aufbauen
             let x = new XMLHttpRequest();
             // Was ist zu tun, wenn die Daten vom Server kommen
@@ -189,26 +190,28 @@ if ($_SESSION["Email"] == "Admin@Admin"){
             x.open("GET","get_from_db.php", true);
             // Request senden
             x.send();
+
+             */
+
         }
 
 
 
         function show_artikel(idvalue) {
             // Objekt mit Parameterwerten als Attribute aufbauen
-            let obj = {
-                id: idvalue"
-            };
+            let obj = { id: idvalue  };
             // und in einen String umwandeln
             let params = JSON.stringify(obj);
             // AJAX Request aufbauen
             let x = new XMLHttpRequest();
+            /*
             // Was ist zu tun, wenn die Daten vom Server kommen
             x.onload = function() {
                 let arr  = JSON.parse(this.responseText);
                 document.getElementById("artikeldiv").innerHTML =
                     formatResultAsHtmlDefinitionList(arr);
             };
-
+             */
             // Wer am Server liest die Daten
             // true -> asynchrone Abarbeitung
             x.open("POST","get_from_kategorie.php?id=" , true);
@@ -217,6 +220,11 @@ if ($_SESSION["Email"] == "Admin@Admin"){
                 "application/x-www-form-urlencoded");
             // Request senden mit Parameter Werten
             x.send("params="+params);
+
+            let arr  = JSON.parse(x.responseText);
+            document.getElementById("inhalt").innerHTML =
+                formatResultAsHtmlDefinitionList(arr);
+
         }
 
         // Nun  als HTLM Definitionlist formatieren
