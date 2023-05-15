@@ -46,19 +46,25 @@ document.addEventListener("DOMContentLoaded", function () {
         // Artikel anzeigen
         for (let i = 0; i < artikel.length; i++) {
             const item = document.createElement("div");
-            item.classList.add("artikel");
+            item.classList.add("artikel-box");
             item.innerHTML = `
-                <p>${artikel[i].artikel_id}</p>
-                <p>${artikel[i].artikel_name}</p>
-                <p>${artikel[i].artikel_beschreibung}</p>
-                <p>${artikel[i].preis}</p>
-                <p>${artikel[i].kategorie}</p>
-                <p>${artikel[i].artikel_id}</p>
-                <img src='${artikel[i].bild_url}'  width='auto' height='150'>
-            `;
+            <div class="artikel-img">
+                <img src="${artikel[i].bild_url}" alt="Artikelbild">
+            </div>
+            <div class="artikel-details">
+                <p class="artikel-id">${artikel[i].artikel_id}</p>
+                <p class="artikel-name">${artikel[i].artikel_name}</p>
+                <p class="artikel-beschreibung">${artikel[i].artikel_beschreibung}</p>
+                <p class="artikel-preis">${artikel[i].preis}</p>
+                <p class="artikel-kategorie">${artikel[i].kategorie}</p>
+            </div>
+        `;
             inhaltElement.appendChild(item);
         }
     }
+
+
+
 
     // Kategorien abrufen und Dropdown-Liste initialisieren
     getKategorien();
