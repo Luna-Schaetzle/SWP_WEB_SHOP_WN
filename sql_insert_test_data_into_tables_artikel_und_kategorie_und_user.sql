@@ -28,7 +28,20 @@ INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('M
 INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('PC','PC',1.99,4,'https://www.heimwerker-test.de/images/testbilder/thumb_big/stiga-kehrmaschine-swp-355-rund-ums-haus-54865.jpg');
 INSERT artikel (artikel_name,artikel_beschreibung,preis,kID,bild_url) VALUES ('Laptop','Laptop',1.99,4,'https://www.heimwerker-test.de/images/testbilder/thumb_big/stiga-kehrmaschine-swp-355-rund-ums-haus-54865.jpg');
 
---user
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url)
+VALUES ('Fluffy Ears', 'Adorable fluffy ears for a cute look!', 39.99, 3, 'https://genkigear.com/wp-content/uploads/2020/04/front-image-white-ears.jpg');
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url) VALUES ('Fluffy Earmuffs', 'Keep your ears warm and cozy with these fluffy earmuffs.', 24.99, 3, 'https://m.media-amazon.com/images/I/611qXTm0O9L._AC_UL1500_.jpg');
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url) VALUES ('Furry Blanket', 'Wrap yourself in this soft and furry blanket for ultimate comfort.', 49.99, 3, 'https://m.media-amazon.com/images/I/81XMWjtMAaL.jpg');
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url) VALUES ('Furry Slippers', 'Step into luxury with these fluffy and comfortable slippers.', 19.99, 3, 'https://m.media-amazon.com/images/I/61CV8vYAnrL._AC_UY1000_.jpg');
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url) VALUES ('Furry Phone Case', 'Protect your phone with this stylish furry phone case.', 14.99, 3, 'https://res.cloudinary.com/teepublic/image/private/s--ESjIa4Gd--/c_crop,x_10,y_10/c_fit,w_673/c_crop,g_north_west,h_1106,w_552,x_17,y_-69/l_upload:v1604679273:production:blanks:koyumccking9usteal4e/fl_layer_apply,g_north_west,x_-355,y_-140/b_rgb:ffffff/c_limit,f_jpg,h_630,q_90,w_630/v1500658720/production/designs/1755080_1.jpg');
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url) VALUES ('Furry Handbag', 'Carry your essentials in this trendy furry handbag.', 34.99, 3, 'https://example.com/furry_handbag.jpg');
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url) VALUES ('Furry Keychain', 'Add some flair to your keys with this adorable furry keychain.', 9.99, 3, 'https://example.com/furry_keychain.jpg');
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url) VALUES ('Furry Notebook', 'Take notes in style with this furry notebook.', 12.99, 3, 'https://example.com/furry_notebook.jpg');
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url) VALUES ('Furry Backpack', 'Carry your belongings in this fashionable furry backpack.', 39.99, 3, 'https://resize.cdn.otakumode.com/ex/1200.1200/shop/product/ddef326668fb435c9026236f8db20602.jpg');
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url) VALUES ('Furry Gloves', 'Keep your hands warm with these fluffy furry gloves.', 16.99, 3, 'https://i.ebayimg.com/images/g/nH0AAOSwY4pdQIn4/s-l1600.jpg');
+INSERT INTO artikel (artikel_name, artikel_beschreibung, preis, kID, bild_url) VALUES ('Furry Pillow', 'Rest your head on this soft and fluffy furry pillow.', 29.99, 3, 'https://m.media-amazon.com/images/I/71NcgFpW5lL._AC_UF894,1000_QL80_.jpg');
+
+
 --Insert users (user_nachname, user_vorname, user_psw,user_email) VALUES ('','','','');
 Insert users (user_nachname, user_vorname, user_psw,user_email) VALUES ('Test','user','psw','te@test.com');
 Insert users (user_nachname, user_vorname, user_psw,user_email) VALUES ('Luna', 'Schaetzle','pws','Luna@luna.com');

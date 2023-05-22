@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         xhr.send();
     }
 
+    /*
     function showArtikel(artikel) {
         inhaltElement.innerHTML = ""; // Vorherige Artikel löschen
 
@@ -61,8 +62,56 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
             inhaltElement.appendChild(item);
         }
+
+   }
+     */
+
+    function showArtikel(artikel) {
+        inhaltElement.innerHTML = ""; // Vorherige Artikel löschen
+
+        // Artikel anzeigen
+        for (let i = 0; i < artikel.length; i++) {
+            const item = document.createElement("div");
+            item.classList.add("artikel-box");
+            item.innerHTML = `
+                <div class="artikel-img">
+                    <img src="${artikel[i].bild_url}" alt="Artikelbild">
+                </div>
+                <div class="artikel-details">
+                    <p class="artikel-id">${artikel[i].artikel_id}</p>
+                    <p class="artikel-name">${artikel[i].artikel_name}</p>
+                    <p class="artikel-beschreibung">${artikel[i].artikel_beschreibung}</p>
+                    <p class="artikel-preis">${artikel[i].preis}</p>
+                    <p class="artikel-kategorie">${artikel[i].kategorie}</p>
+                    <button class="kaufen-button" data-artikel-id="${artikel[i].artikel_id}">Kaufen</button>
+                </div>
+            `;
+            inhaltElement.appendChild(item);
+        }
     }
 
+    // ... (vorhandener Code)
+
+    // Event Listener für Kaufbutton
+    inhaltElement.addEventListener("click", function (event) {
+        if (event.target.classList.contains("kaufen-button")) {
+            const artikelId = event.target.dataset.artikelId;
+            addToCart(artikelId);
+        }
+    });
+
+    // Artikel zum Warenkorb hinzufügen
+    function addToCart(artikelId) {
+        // Hier kannst du den Code hinzufügen, um die Artikel-ID zum Warenkorb hinzuzufügen
+        // Zum Beispiel kannst du eine Funktion aufrufen, die die Artikel-ID speichert oder an einen Server sendet
+        // Hier ist ein Beispiel:
+        const warenkorb = document.getElementById("warenkorb");
+         const row = document.createElement("tr");
+         const cell = document.createElement("td");
+         cell.textContent = artikelId;
+        row.appendChild(cell);
+        warenkorb.appendChild(row);
+    }
 
 
 

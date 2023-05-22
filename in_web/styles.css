@@ -1,9 +1,16 @@
 /* Allgemeine Styles */
 body {
-    background-color: #f2f2f2;
+    background-image: url('https://img.freepik.com/free-vector/set-torii-gates-water_52683-44986.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0 5%;
+    border-collapse: collapse;
+    text-align: center;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f2f2f2;
 }
 
 h1 {
@@ -14,11 +21,8 @@ h1 {
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
     max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
 }
 
@@ -68,6 +72,11 @@ select {
     padding: 20px;
     text-align: center;
     width: 250px;
+}
+
+.artikel-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .artikel-img img {
