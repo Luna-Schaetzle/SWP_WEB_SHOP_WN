@@ -9,10 +9,16 @@ if ($connection->connect_errno) {
 $kategorie = $_GET["kategorie"];
 
 // SQL-Abfrage vorbereiten und ausführen
+if ($kategorie == "Alle Kateogrien") {
+    $stmt = $connection->prepare("SELECT a.artikel_id,a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID");
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else{
 $stmt = $connection->prepare("SELECT a.artikel_id,a.artikel_name, a.artikel_beschreibung,a.preis,b.kategorie,a.bild_url from artikel a inner join kategorien b on a.kID = b.kID where b.kategorie = ?");
 $stmt->bind_param("s", $kategorie);
 $stmt->execute();
 $result = $stmt->get_result();
+}
 
 // Artikel in ein Array speichern
 $artikel = [];

@@ -98,6 +98,7 @@ session_start();
             margin: 5px 0;
         }
 
+
         /* Responsive Styles */
         @media only screen and (max-width: 768px) {
             .container {
@@ -115,21 +116,16 @@ session_start();
 
 </head>
 <body>
-
+<body>
 <h1>Web@Shop</h1>
 <p></p>
-
 <p></p>
 
 <?php
-if ($_SESSION["Email"] == null){
+if ($_SESSION["Email"] == null) {
     header("Location: logout.php");
 }
-echo "<p>User: ".$_SESSION["Email"]."</p>";
-//echo "<p>User ID: ".$_SESSION["user_id"]."</p>";
-//echo "<a href='logout.php'>Logout</a><br>";
-//echo "<br><a href='showwarenkorb.php'>Warenkorb</a>";
-
+echo "<p>User: " . $_SESSION["Email"] . "</p>";
 ?>
 
 <button onclick="window.location.href='logout.php';">Logout</button>
@@ -140,7 +136,7 @@ echo "<p>User: ".$_SESSION["Email"]."</p>";
 <p></p>
 
 <?php
-if ($_SESSION["Email"] == "Admin@Admin"){
+if ($_SESSION["Email"] == "Admin@Admin") {
     echo "<a href='eingabe_der_artikel_admin.html'>admin insert</a><br>";
 }
 ?>
@@ -149,9 +145,7 @@ if ($_SESSION["Email"] == "Admin@Admin"){
 <label for="kategorie">Kategorie:</label>
 <select id="kategorie">
 </select>
-<div id="inhalt">
-
-
+<div id="inhalt"></div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -173,12 +167,17 @@ if ($_SESSION["Email"] == "Admin@Admin"){
 
         // Dropdown-Liste mit Kategorien aktualisieren
         function updateKategorien(kategorien) {
+            const option = document.createElement("option");
+            option.value = "Alle Kateogrien";
+            option.textContent = "Alle Kateogrien";
+            kategorieElement.appendChild(option);
             for (let i = 0; i < kategorien.length; i++) {
                 const option = document.createElement("option");
                 option.value = kategorien[i];
                 option.textContent = kategorien[i];
                 kategorieElement.appendChild(option);
             }
+
         }
 
         // Artikel anhand der ausgewählten Kategorie anzeigen
@@ -196,68 +195,58 @@ if ($_SESSION["Email"] == "Admin@Admin"){
             xhr.send();
         }
 
-        /*
+        // Artikel zum Warenkorb hinzufügen
+        function addToCart(artikelId) {
+            const url = `add_to_cart.php?artikelId=${artikelId}`;
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    //alert(xhr.responseText);
+                    alert("Artikel wurde zum Warenkorb hinzugefügt");
+                }
+            };
+            xhr.send();
+        }
+
+        // Artikel anzeigen
         function showArtikel(artikel) {
             inhaltElement.innerHTML = ""; // Vorherige Artikel löschen
 
-            // Artikel anzeigen
             for (let i = 0; i < artikel.length; i++) {
                 const item = document.createElement("div");
                 item.classList.add("artikel-box");
                 item.innerHTML = `
-                <div class="artikel-img">
-                    <img src="${artikel[i].bild_url}" alt="Artikelbild">
-                </div>
-                <div class="artikel-details">
-                    <p class="artikel-id">${artikel[i].artikel_id}</p>
-                    <p class="artikel-name">${artikel[i].artikel_name}</p>
-                    <p class="artikel-beschreibung">${artikel[i].artikel_beschreibung}</p>
-                    <p class="artikel-preis">${artikel[i].preis}</p>
-                    <p class="artikel-kategorie">${artikel[i].kategorie}</p>
-                </div>
-            `;
-                inhaltElement.appendChild(item);
-            }
-
-       }
-         */
-
-        function showArtikel(artikel) {
-            inhaltElement.innerHTML = ""; // Vorherige Artikel löschen
-
-            // Artikel anzeigen
-            for (let i = 0; i < artikel.length; i++) {
-                const item = document.createElement("div");
-                item.classList.add("artikel-box");
-                item.innerHTML = `
-      <div class="artikel-img">
-          <img src="${artikel[i].bild_url}" alt="Artikelbild">
-      </div>
-      <div class="artikel-details">
-          <p class="artikel-id">${artikel[i].artikel_id}</p>
-          <p class="artikel-name">${artikel[i].artikel_name}</p>
-          <p class="artikel-beschreibung">${artikel[i].artikel_beschreibung}</p>
-          <p class="artikel-preis">${artikel[i].preis}</p>
-          <p class="artikel-kategorie">${artikel[i].kategorie}</p>
-          <button class="kaufen-button" onclick="addToCart(${artikel[i].artikel_id})">Kaufen</button>
-      </div>
-    `;
+                        <div class="artikel-img">
+                            <img src="${artikel[i].bild_url}" alt="Artikelbild">
+                        </div>
+                        <div class="artikel-details">
+                            <p class="artikel-id">${artikel[i].artikel_id}</p>
+                            <p class="artikel-name">${artikel[i].artikel_name}</p>
+                            <p class="artikel-beschreibung">${artikel[i].artikel_beschreibung}</p>
+                            <p class="artikel-preis">${artikel[i].preis}</p>
+                            <p class="artikel-kategorie">${artikel[i].kategorie}</p>
+                            <button class="kaufen-button" onclick="addToCart(${artikel[i].artikel_id});">Kaufen</button>
+                        </div>
+                    `;
                 inhaltElement.appendChild(item);
             }
         }
-
-        //TODO: Artikel zum Warenkorb hinzufügen
-
 
         // Kategorien abrufen und Dropdown-Liste initialisieren
         getKategorien();
 
         // Event Listener für Kategorieauswahl
         kategorieElement.addEventListener("change", datenHolen);
+
+        // Kaufbutton-Eventlistener
+        inhaltElement.addEventListener("click", function (event) {
+            if (event.target.classList.contains("kaufen-button")) {
+                const artikelId = event.target.closest(".artikel-box").querySelector(".artikel-id").textContent;
+                addToCart(artikelId);
+            }
+        });
     });
-
-
 </script>
-</div>
 </body>
 </html>
